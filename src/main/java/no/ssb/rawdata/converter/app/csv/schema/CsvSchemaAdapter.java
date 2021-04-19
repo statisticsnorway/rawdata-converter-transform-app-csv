@@ -2,6 +2,7 @@ package no.ssb.rawdata.converter.app.csv.schema;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import no.ssb.rawdata.api.RawdataMessage;
 import no.ssb.rawdata.converter.app.csv.CsvRawdataConverter;
 import no.ssb.rawdata.converter.core.exception.RawdataConverterException;
@@ -76,6 +77,7 @@ import static no.ssb.rawdata.converter.app.csv.schema.CsvSchemaAdapter.RecordTyp
  */
 @Data
 @RequiredArgsConstructor
+@Slf4j
 public class CsvSchemaAdapter {
     private static final String FIELDNAME_ITEM = "item";
     private static final String FIELDNAME_COLLECTION = "elements";
@@ -104,8 +106,9 @@ public class CsvSchemaAdapter {
             if (dataItems.size() > 1) {
                 throw new CsvSchemaException("Encountered multi-line CSV data, but schema only supports a single record (record-type=single)");
             }
-
-            return dataItems.stream().findFirst().get();
+            GenericRecord gr = dataItems.stream().findFirst().get();
+            log.debug("generic record:\n"+gr.toString());
+            return gr;
         }
         else {
             return new GenericRecordBuilder(collectionSchema).set(FIELDNAME_COLLECTION, dataItems).build();

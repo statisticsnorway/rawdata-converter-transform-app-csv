@@ -47,6 +47,7 @@ public class DefaultRawdataConverterFactory implements RawdataConverterFactory {
             valueInterceptorChain.register(schemaMetricsPublisher::notifyFieldConverted);
         }
 */
+
         // Make sure the CsvConverterConfig is not null
         if (converterConfig == null) {
             converterConfig = (defaultRawdataConverterConfig == null) ? new CsvRawdataConverterConfig() : defaultRawdataConverterConfig;
