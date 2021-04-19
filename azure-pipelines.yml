@@ -59,7 +59,7 @@ jobs:
       - download: current
         displayName: 'Download pipeline artifact'
         patterns: |
-          **/rawdata-converter-app-csv-*.jar
+          **/rawdata-converter-transform-app-csv-*.jar
           **/logback*.xml
         artifact: target
 
@@ -92,7 +92,7 @@ jobs:
         displayName: 'Build and push Docker image'
         inputs:
           containerRegistry: 'gcrServiceConnection'
-          repository: 'prod-bip/ssb/dapla/rawdata-converter-app-csv'
+          repository: 'prod-bip/ssb/dapla/rawdata-converter-transform-app-csv'
           command: 'buildAndPush'
           tags: '$(IMAGE_TAG)'
 
@@ -115,9 +115,9 @@ jobs:
           RELEASE_TAG="${BASH_REMATCH[1]}"
           COMMIT_SHA="$(Build.SourceVersion)"
           CURRENT_TAG="master-${COMMIT_SHA:0:8}"
-          echo "Tagging image eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-app-csv:$CURRENT_TAG with $RELEASE_TAG"
+          echo "Tagging image eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-transform-app-csv:$CURRENT_TAG with $RELEASE_TAG"
           cat $(gcrJsonKey.secureFilePath) | docker login -u _json_key --password-stdin https://eu.gcr.io
-          docker pull eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-app-csv:$CURRENT_TAG
-          docker tag eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-app-csv:$CURRENT_TAG eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-app-csv:$RELEASE_TAG
-          docker push eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-app-csv:$RELEASE_TAG
+          docker pull eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-transform-app-csv:$CURRENT_TAG
+          docker tag eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-transform-app-csv:$CURRENT_TAG eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-transform-app-csv:$RELEASE_TAG
+          docker push eu.gcr.io/prod-bip/ssb/dapla/rawdata-converter-transform-app-csv:$RELEASE_TAG
         displayName: 'Tag production image'

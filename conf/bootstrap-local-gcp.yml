@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: rawdata-converter-app-csv
+    name: rawdata-converter-transform-app-csv
   config-client:
     enabled: true
 gcp:

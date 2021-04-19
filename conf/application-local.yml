@@ -1,5 +1,5 @@
 micronaut:
-  application.name: rawdata-converter-app-csv
+  application.name: rawdata-converter-transform-app-csv
   server:
     port: 8080
   caches:

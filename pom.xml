@@ -18,9 +18,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:git://github.com/statisticsnorway/rawdata-converter-app-csv.git</connection>
-        <developerConnection>scm:git:git@github.com:statisticsnorway/rawdata-converter-app-csv.git</developerConnection>
-        <url>https://github.com/statisticsnorway/rawdata-converter-app-csv</url>
+        <connection>scm:git:git://github.com/statisticsnorway/rawdata-converter-transform-app-csv.git</connection>
+        <developerConnection>scm:git:git@github.com:statisticsnorway/rawdata-converter-transform-app-csv.git</developerConnection>
+        <url>https://github.com/statisticsnorway/rawdata-converter-transform-app-csv</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -56,7 +56,7 @@
                     </annotationProcessorPaths>
                     <compilerArgs>
                         <arg>-Amicronaut.processing.group=no.ssb.rawdata.converter.app</arg>
-                        <arg>-Amicronaut.processing.module=rawdata-converter-app-csv</arg>
+                        <arg>-Amicronaut.processing.module=rawdata-converter-transform-app-csv</arg>
                     </compilerArgs>
                 </configuration>
             </plugin>

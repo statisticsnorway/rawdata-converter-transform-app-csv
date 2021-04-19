@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="rawdata-converter-app-csv-local" type="MicronautRunConfigurationType" factoryName="Micronaut">
-    <module name="rawdata-converter-app-csv" />
+  <configuration default="false" name="rawdata-converter-transform-app-csv-local" type="MicronautRunConfigurationType" factoryName="Micronaut">
+    <module name="rawdata-converter-transform-app-csv" />
     <option name="alternativeJrePath" />
     <option name="alternativeJrePathEnabled" value="false" />
     <option name="includeProvidedScope" value="true" />
