@@ -38,6 +38,9 @@ public class DefaultRawdataConverterFactory implements RawdataConverterFactory {
     public RawdataConverter newRawdataConverter(ConverterJobConfig jobConfig, CsvRawdataConverterConfig converterConfig) {
         ValueInterceptorChain valueInterceptorChain = new ValueInterceptorChain();
 
+        AccountNoNormalizer accountNoNormalizer = new AccountNoNormalizer("KortinnehKontonr");
+        valueInterceptorChain.register(accountNoNormalizer::checkAndFix);
+
         if (jobConfig.getPseudoRules() != null && ! jobConfig.getPseudoRules().isEmpty()) {
             FieldPseudonymizer fieldPseudonymizer = pseudonymizerFactory.newFieldPseudonymizer(jobConfig);
             valueInterceptorChain.register(fieldPseudonymizer::pseudonymize);
