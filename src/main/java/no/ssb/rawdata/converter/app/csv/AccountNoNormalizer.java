@@ -13,10 +13,10 @@ public class AccountNoNormalizer {
     private final String accountNoFieldName;
 
     public String checkAndFix(FieldDescriptor field, String varValue) {
-        if (accountNoFieldName.equals(field.getName()) && varValue != null && varValue.length() == 12) {
+        if (accountNoFieldName.equals(field.getName()) && varValue != null && varValue.length() > 11) {
             // log.debug("Field value: {}", varValue);
             // TODO: do something with field, like:
-            return varValue.substring(0, 11);
+            return varValue.substring(0, varValue.length()-1);
         }
         ;
         return varValue;
