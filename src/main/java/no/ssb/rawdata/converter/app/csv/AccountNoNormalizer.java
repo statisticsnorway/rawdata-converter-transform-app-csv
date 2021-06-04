@@ -13,12 +13,12 @@ public class AccountNoNormalizer {
     private final String accountNoFieldName = "BrukerstedNavn";
 
     public String checkAndFix(FieldDescriptor field, String varValue) {
-        if (accountNoFieldName.equals(field.getName()) && (varValue.contains("\n") || varValue.contains(System. lineSeparator())
-                || varValue.contains("\t\n"))) {
-            log.debug("Field value: {}", varValue);
-            // TODO: do something with field, like:
-            return varValue.replace("\n", "").replace("\t\n"," ").replace(System.lineSeparator(), " ");
-        }
+//        if (accountNoFieldName.equals(field.getName()) && (varValue.contains("\n") || varValue.contains(System. lineSeparator())
+//                || varValue.contains("\t\n"))) {
+//            log.debug("Field value: {}", varValue);
+//            // TODO: do something with field, like:
+//            return varValue.replace("\n", "").replace("\t\n"," ").replace(System.lineSeparator(), " ");
+//        }
         ;
         return varValue;
     }
